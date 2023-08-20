@@ -18,6 +18,7 @@ const registrationData = async (req, res, next) => {
 const getAllData = async (req, res, next) => {
     try {
         const data = await userModel.find({});
+        console.log(data);
         res.status(200).json(data);
     } catch (error) {
         next(error);
