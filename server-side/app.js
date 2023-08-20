@@ -5,7 +5,7 @@ import logger from 'morgan';
 import { config } from 'dotenv';
 
 import dbconnection from './config/connection.js';
-
+import mainRoute from './routes/mainRouter.js'
 
 config()
 const port = process.env.PORT
@@ -19,6 +19,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json({ extended: false, limit: '50mb' }));
 app.use(logger('dev'));
 
+
+app.use('/',mainRoute)
 
 app.listen(port, () => {
     console.log(`server listening at http://127.0.0.1:${port}`);
