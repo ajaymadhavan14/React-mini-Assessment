@@ -1,10 +1,9 @@
-import express from 'express'
-import mainController from '../controllers/main.js'
+import express from "express";
+import mainController from "../controllers/main.js";
 
+const router = express.Router();
 
-const router = express.Router()
- 
+router.post("/registrationdata", mainController.registrationData);
+router.get('/alldata',mainController.getAllData)
 
-router.post('/registrationdata', mainController.registrationData)
-
-export default router
+export default router;

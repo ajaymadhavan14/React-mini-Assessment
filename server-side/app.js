@@ -8,7 +8,7 @@ import dbconnection from './config/connection.js';
 import mainRoute from './routes/mainRouter.js'
 
 config()
-const port = process.env.PORT
+const port = process.env.PORT || 3001
 const { DATABASE_URL } = process.env;
 const app = express();
 dbconnection(DATABASE_URL);

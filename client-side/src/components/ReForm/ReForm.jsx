@@ -48,7 +48,7 @@ function ReForm() {
     } else {
       setErrors({});
       console.log("Form data:", formData);
-      axios.post('/registrationdata',formData)
+      axios.post("/registrationdata", formData);
       // Perform further actions like sending the data to a server
     }
   };
