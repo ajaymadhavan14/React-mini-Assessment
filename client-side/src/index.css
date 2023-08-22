@@ -1,7 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-subButton {
+
+/* subButton {
   color: #000;
   position: relative;
   text-decoration: none;
@@ -21,4 +22,4 @@ subButton::before {
 subButton:hover::before {
   transform: scaleX(1);
   transform-origin: left;
-}
+} */

@@ -1,0 +1,32 @@
+.sample {
+  color: #000;
+  background-color:  #23827A;
+  position: relative;
+  text-decoration: none;
+}
+
+.sample::before {
+  background:#23827A;
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease-in-out;
+  z-index: -1;
+}
+
+.sample:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Presentational styles */
+/* body {
+  display: grid;
+  font-family: system-ui, sans;
+  font-size: 3.5rem;
+  font-weight: 800;
+  height: 100vh;
+  place-items: center;
+} */
