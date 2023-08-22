@@ -10,9 +10,7 @@ import Frame5 from "../../assets/Frame 1118.png";
 function LandingPage() {
   return (
     <div className="w-screen bg-gradient-to-b from-[#FFF6DB] to-[#FFFFFF] ">
-    
-
-      <div className=" bg- h-[614px] w-screen flex  ">
+      <div className=" bg- md:h-[614px] w-screen flex flex-col md:flex-row  ">
         <div className="h-full w-1/2  flex  flex-col justify-center pl-28">
           <h3 className="text-[38px] font-bold leading-snug">
             The say, when life gives you <br /> lemons, make lemonade!
@@ -27,24 +25,22 @@ function LandingPage() {
 
           <div className="mt-10">
             <Link to="/registrationform">
-            <button className="rounded flex justify-center  items-center bg-gradient-to-r text-[27px] px-10 py-2 text-white from-[#E75553] to-[#ED8663]">
-              <span>Join now</span>
-              <i
-                className="fa-solid fa-arrow-right ml-3 mt-2"
-                style={{ color: "#ffffff" }}
-              ></i>
-            </button>
+              <button className="rounded flex justify-center  items-center bg-gradient-to-r text-[27px] px-10 py-2 text-white from-[#E75553] to-[#ED8663]">
+                <span>Join now</span>
+                <i
+                  className="fa-solid fa-arrow-right ml-3 mt-2"
+                  style={{ color: "#ffffff" }}
+                ></i>
+              </button>
             </Link>
           </div>
         </div>
         <div className="h-full w-1/2 flex justify-left  items-center pt-28">
-          <img className="h-[557px] w-[557px]" src={Frame} alt="image" />
+          <img className="md:h-[557px] w-[557px]" src={Frame} alt="image" />
         </div>
       </div>
-      
 
-      {/*  */}
-      <div className="h-[557px] w-screen">
+      <div className="md:h-[557px] w-screen">
         <div className="flex justify-center text-[38px]  font-semibold">
           <h2 className="text-center">
             Take the test & know which of the <br /> lemon personalities you
@@ -52,7 +48,7 @@ function LandingPage() {
           </h2>
         </div>
         <div className="flex justify-center h-full items-center">
-          <div className="grid grid-cols-5 px-20 gap-5">
+          <div className="grid  grid-col-1 sm:grid-cols-2 md:grid-cols-5 px-20 gap-5">
             <div className="">
               <img className="" src={Frame1} alt="image" />
             </div>
