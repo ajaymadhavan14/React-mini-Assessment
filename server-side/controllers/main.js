@@ -9,7 +9,7 @@ const registrationData = async (req, res, next) => {
             phoneNumber,
             message,
         });
-        res.status(201).json({ status: "success", message: "Data saved" });
+        res.status(201).json({ status: "success", message: "Data saved" }); 
     } catch (error) {
         next(error);
     }

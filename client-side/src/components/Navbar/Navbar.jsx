@@ -2,9 +2,9 @@ import React from "react";
 
 function Navbar() {
   return (
-    <div className="h-32 w-screen bg-[#FFF6DB]">
-      <div className="pl-10">
-        <img src="/image 21.png" alt="image" />
+    <div className={` w-screen bg-[#FFFFFF] py-4 px-16`}>
+      <div className="">
+        <img src="/image 21.png" alt="image" className="w-[171px] h-[56px]" />
       </div>
     </div>
   );
