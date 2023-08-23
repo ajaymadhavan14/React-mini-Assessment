@@ -1,40 +1,58 @@
 import userModel from "../model/userDataSchema.js";
 
 const registrationData = async (req, res, next) => {
-    try {
-       
-        const { fullName, email, phoneNumber, message } = req.body;
-        const exist = await userModel.findOne({email:email})
-        if(exist) {
-          return  res.json({ success:false, message: "Email already exist" }); 
-        }
-      const user =  await userModel.create({
-            fullName,
-            email,
-            phoneNumber,
-            message,
-        });
-        if(user) {
+  try {
+    console.log(req.body);
+    const { fullName, email, phoneNumber, message } = req.body;
 
-            res.status(201).json({ success:true, message: "Data saved" }); 
-        }else {
-            res.json({ success:false, message: "User not found" }); 
-
-        }
-    } catch (error) {
-        res.json({ success:false, message: "error occured in registraction data controller" }); 
-        
+    // Check if the user with the given email already exists
+    const userExists = await userModel.findOne({ email: email });
+    if (userExists) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Email already exists" });
     }
+
+    // Create a new user
+    const newUser = await userModel.create({
+      fullName,
+      email,
+      phoneNumber,
+      message,
+    });
+
+    if (newUser) {
+      res
+        .status(201)
+        .json({ success: true, message: "Data saved successfully" });
+    } else {
+      res
+        .status(500)
+        .json({ success: false, message: "Failed to create user" });
+    }
+  } catch (error) {
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "An error occurred while processing registration",
+      });
+  }
 };
 
 const getAllData = async (req, res, next) => {
-    try {
-        const data = await userModel.find({});
-        console.log(data);
-        res.status(200).json(data);
-    } catch (error) {
-        next(error);
-    }
+  try {
+    // Retrieve all user data from the database
+    const allUserData = await userModel.find({});
+    res.status(200).json(allUserData);
+  } catch (error) {
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "An error occurred while retrieving data",
+      });
+  }
 };
 
 export default { registrationData, getAllData };

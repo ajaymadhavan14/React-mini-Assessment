@@ -5,6 +5,6 @@ export const getAllData = async () => {
     const { data } = await axios.get("/alldata");
     return data;
   } catch (error) {
-    console.log(error);
+    console.error("Error fetching data:", error);
   }
 };

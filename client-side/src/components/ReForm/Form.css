@@ -1,12 +1,12 @@
 .sample {
   color: #000;
-  background-color:  #23827A;
+  background-color: #23827a;
   position: relative;
   text-decoration: none;
 }
 
 .sample::before {
-  background:#23827A;
+  background: #23827a;
   content: "";
   inset: 0;
   position: absolute;
@@ -21,12 +21,3 @@
   transform-origin: left;
 }
 
-/* Presentational styles */
-/* body {
-  display: grid;
-  font-family: system-ui, sans;
-  font-size: 3.5rem;
-  font-weight: 800;
-  height: 100vh;
-  place-items: center;
-} */

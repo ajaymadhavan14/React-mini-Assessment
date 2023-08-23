@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from "mongoose";
 
 const user = new Schema(
   {
@@ -18,12 +18,12 @@ const user = new Schema(
       type: Number,
       trim: true,
     },
-    message:{
-        required: true,
-        type: String,
-    }
-},
-  { timestamps: true },
+    message: {
+      required: true,
+      type: String,
+    },
+  },
+  { timestamps: true }
 );
 
-export default model('userDatas', user);
+export default model("userDatas", user);
