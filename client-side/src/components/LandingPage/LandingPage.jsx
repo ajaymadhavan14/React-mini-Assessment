@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Frame from "../../assets/Frame.png";
-import Frame1 from "../../assets/Frame 1114.png";
-import Frame2 from "../../assets/Frame 1115.png";
-import Frame3 from "../../assets/Frame 1116.png";
-import Frame4 from "../../assets/Frame 1117.png";
-import Frame5 from "../../assets/Frame 1118.png";
+import Frame from "@assets/Frame.png";
+import Frame1 from "@assets/Frame 1114.png";
+import Frame2 from "@assets/Frame 1115.png";
+import Frame3 from "@assets/Frame 1116.png";
+import Frame4 from "@assets/Frame 1117.png";
+import Frame5 from "@assets/Frame 1118.png";
 
 function LandingPage() {
   return (
@@ -25,7 +25,7 @@ function LandingPage() {
 
           <div className="md:mt-10  ml-10 mt-6 sm:ml-10">
             <Link to="/registrationform">
-              <button className="rounded flex justify-center  items-center bg-gradient-to-r md:text-[27px] px-10 py-2 text-white from-[#E75553] to-[#ED8663]">
+              <button className="  rounded flex justify-center  items-center border hover:border-black bg-gradient-to-r hover:bg-gradient-to-l md:text-[27px] px-10 py-2 text-white from-[#E75553] to-[#ED8663] ">
                 <span>Join now</span>
                 <i
                   className="fa-solid fa-arrow-right ml-3 mt-2"

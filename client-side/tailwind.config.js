@@ -5,7 +5,19 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#FFF6DB",
+        secondary: "#FFA400",
+      },
+      fontFamily: {
+        urbanist: ["Urbanist", "sans-serif"],
+      },
+    },
   },
   plugins: [],
+  
+   
+
+  
 }

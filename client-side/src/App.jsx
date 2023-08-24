@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import RegistrationForm from "./pages/RegistrationForm";
-import Home from "./pages/Home";
-import AllData from "./pages/AllData";
-import Confirmation from "./pages/Confirmation";
+import RegistrationForm from "@pages/RegistrationForm";
+import Home from "@pages/Home";
+import AllData from "@pages/AllData";
+import Confirmation from "@pages/Confirmation";
 
 function App() {
   return (

@@ -1,8 +1,6 @@
-
-
 import React, { useState } from "react";
 import axios from "../../axios/axios";
-import Trophy from "../../assets/Trophy.png";
+import Trophy from "@assets/Trophy.png";
 import "./Form.css";
 import { useNavigate } from "react-router-dom";
 
@@ -15,6 +13,11 @@ function ReForm() {
     message: "",
   });
   const [errors, setErrors] = useState({});
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleInputClick = () => {
+    setIsEditing(true);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,11 +55,12 @@ function ReForm() {
     // Update errors state and handle submission if no errors
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      setIsEditing(false);
     } else {
       setErrors({});
 
       const response = await axios.post("/registration", formData);
-       console.log(response);
+      console.log(response);
       if (response.data.success) {
         navigate("/success");
       } else {
@@ -67,7 +71,7 @@ function ReForm() {
   };
 
   return (
-    <div className="w-screen flex justify-center items-center bg-[#FFF6DB]">
+    <div className="w-screen flex justify-center items-center bg-primary">
       {/* <div className="h-auto w-full max-w-screen-md p-6"> */}
       <div className="h-auto w-[525px] p-6">
         <div className="w-full sm:w-[525px] flex flex-col items-center sm:flex-row sm:items-start mx-auto my-10">
@@ -77,97 +81,109 @@ function ReForm() {
           </p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div className={`${errors.fullName && "pb-5"}`}>
+          <div className={`${errors.fullName && !isEditing && "pb-5"}`}>
             <input
               placeholder="Full Name"
               className={`${
-                errors.fullName
+                errors.fullName && !isEditing
                   ? "border-red-500 text-red-500"
                   : "border-black text-black"
               } w-full px-3 py-3 border rounded-lg`}
               type="text"
               id="fullName"
               name="fullName"
-              value={errors.fullName ? "Full Name" : formData.fullName}
-              disabled={errors.fullName ? true : false}
+              value={
+                errors.fullName && !isEditing ? "Full Name" : formData.fullName
+              }
+              // disabled={errors.fullName ? true : false}
               onChange={handleChange}
+              onClick={handleInputClick}
             />
-            {errors.fullName && (
+            {errors.fullName && !isEditing && (
               <div className="flex justify-end -mt-10 pr-3">
-                <span className="bg-[#FF8181] text-red-700 p-1 px-2 rounded-lg">
+                <span className="bg-[#FF8181] text-red-700  px-2 rounded-lg">
                   FullName is Invalid
                 </span>
               </div>
             )}
           </div>
-          <div className={`${errors.email && "pb-5"}`}>
+          <div className={`${errors.email && !isEditing && "pb-5"}`}>
             <input
               // Email Input
               placeholder="Email"
               className={`${
-                errors.email
+                errors.email && !isEditing
                   ? "border-red-500 text-red-500"
                   : "border-black text-black"
               } w-full px-3 py-3 border rounded-lg`}
               type="email"
               id="email"
               name="email"
-              value={errors.email ? "Email" : formData.email}
-              disabled={errors.email ? true : false}
+              value={errors.email && !isEditing ? "Email" : formData.email}
+              // disabled={errors.email ? true : false}
               onChange={handleChange}
+              onClick={handleInputClick}
             />
-            {errors.email && (
+            {errors.email && !isEditing && (
               <div className="flex justify-end -mt-10 pr-3">
-                <span className="bg-[#FF8181] text-red-700 p-1 px-2 rounded-lg">
+                <span className="bg-[#FF8181] text-red-700 px-2 rounded-lg">
                   Email is Invalid
                 </span>
               </div>
             )}
           </div>
-          <div className={`${errors.phoneNumber && "pb-5"}`}>
+          <div className={`${errors.phoneNumber && !isEditing && "pb-5"}`}>
             <input
               // Phone Number Input
               placeholder="Contact no."
               className={`${
-                errors.phoneNumber
+                errors.phoneNumber && !isEditing
                   ? "border-red-500 text-red-500"
                   : "border-black text-black"
               } w-full px-3 py-3 border rounded-lg`}
-              type={errors.phoneNumber ? "text" : "number"}
+              type={errors.phoneNumber && !isEditing ? "text" : "number"}
               id="phoneNumber"
               name="phoneNumber"
-              value={errors.phoneNumber ? "Contact No" : formData.phoneNumber}
-              disabled={errors.phoneNumber ? true : false}
+              value={
+                errors.phoneNumber && !isEditing
+                  ? "Contact No"
+                  : formData.phoneNumber
+              }
+              // disabled={errors.phoneNumber ? true : false}
               onChange={handleChange}
+              onClick={handleInputClick}
             />
-            {errors.phoneNumber && (
+            {errors.phoneNumber && !isEditing && (
               <div className="flex justify-end -mt-10 pr-3">
-                <span className="bg-[#FF8181] text-red-700 p-1 px-2 rounded-lg">
+                <span className="bg-[#FF8181] text-red-700  px-2 rounded-lg">
                   Number is Invalid
                 </span>
               </div>
             )}
           </div>
-          <div className={`${errors.message && "pb-5"}`}>
+          <div className={`${errors.message && !isEditing && "pb-5"}`}>
             <textarea
               // Message Textarea
-              value={errors.message ? "Message" : formData.message}
-              disabled={errors.message ? true : false}
+              value={
+                errors.message && !isEditing ? "Message" : formData.message
+              }
+              // disabled={errors.message ? true : false}
               onChange={handleChange}
+              onClick={handleInputClick}
               placeholder="Message"
               id="message"
               name="message"
               className={`${
-                errors.message
+                errors.message && !isEditing
                   ? "border-red-500 text-red-500"
                   : "border-black text-black"
               } w-full px-3 py-3 border rounded-lg`}
               cols="30"
               rows="10"
             />
-            {errors.message && (
+            {errors.message && !isEditing && (
               <div className="flex justify-end -mt-12 pr-3">
-                <span className="bg-[#FF8181] p-1 text-red-700 px-2 rounded-lg">
+                <span className="bg-[#FF8181] text-red-700 px-2 rounded-lg">
                   Message is Invalid
                 </span>
               </div>
