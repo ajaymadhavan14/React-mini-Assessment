@@ -31,12 +31,10 @@ const registrationData = async (req, res, next) => {
         .json({ success: false, message: "Failed to create user" });
     }
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "An error occurred while processing registration",
-      });
+    res.status(500).json({
+      success: false,
+      message: "An error occurred while processing registration",
+    });
   }
 };
 
@@ -46,12 +44,10 @@ const getAllData = async (req, res, next) => {
     const allUserData = await userModel.find({});
     res.status(200).json(allUserData);
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "An error occurred while retrieving data",
-      });
+    res.status(500).json({
+      success: false,
+      message: "An error occurred while retrieving data",
+    });
   }
 };
 
