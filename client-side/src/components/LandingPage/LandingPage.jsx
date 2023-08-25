@@ -36,7 +36,11 @@ function LandingPage() {
           </div>
         </div>
         <div className="h-full sm:w-1/2 flex justify-left md:justify-center  items-center md:pt-20  lg:pt-28">
-          <img className="min-h-[300px] min-w-[300px] lg:h-[557px] w-[557px]" src={Frame} alt="image" />
+          <img
+            className="min-h-[300px] min-w-[300px] lg:h-[557px] w-[557px]"
+            src={Frame}
+            alt="image"
+          />
         </div>
       </div>
 

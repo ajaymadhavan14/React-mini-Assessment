@@ -58,9 +58,7 @@ function ReForm() {
       setIsEditing(false);
     } else {
       setErrors({});
-
       const response = await axios.post("/registration", formData);
-      console.log(response);
       if (response.data.success) {
         navigate("/success");
       } else {
